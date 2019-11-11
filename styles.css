@@ -1,3 +1,42 @@
 body {
     background: black;
+    font-family: 'Jomolhari', serif;
+}
+
+h1, h2 {
+    text-align: center;
+    color: white;
+}
+
+#level-selector {
+    color: white;
+    width: 250px;
+    margin: 0 auto;
+    font-size: 20px;
+}
+
+.radio-buttons {
+    color: white;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+#play-button {
+    width: 100px;
+    border-radius: 15px;
+    background: white;
+    color: black;
+    height: 50px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50px);
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#play-button:hover {
+    cursor: pointer;
+    background: black;
+    color: white;
 }
