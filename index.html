@@ -9,7 +9,10 @@
     <title>Extreme Math Challenge</title>
 </head>
 <body> 
+    <!--- Title -->
     <h1>Extreme Math Challenge</h1>
+
+    <!--- Choose level radio buttons -->
     <h2>Choose your level:</h2>
     <div id="level-selector">
         <input type="radio" name="level" value="easy" class="radio-buttons">Easy<br>
@@ -17,6 +20,32 @@
         <input type="radio" name="level" value="hard" class="radio-buttons">Hard<br>
         <input type="submit" value="Play" id="play-button">
     </div>
+    <hr>
+    <!--- Choose level radio buttons END -->
+
+    <!--- Game screen -->
+    <div id="game-screen">
+
+        <!--- Displays -->
+        <p id="timer-display">0:30</p>
+        <p id="question-display">5 * 5</p>
+        <p id="score-display">4 / 8</p>
+        <!--- Displays END-->
+
+        <!--- Answer Buttons -->
+        <div id="answer-buttons">
+            <button id="button_1" class="answers answer-button" name="0">23</button>
+            <button id="button_2" class="answers answer-button" name="1">20</button> <br>
+            <button id="button_3" class="answers answer-button" name="2">29</button>
+            <button id="button_4" class="answers answer-button" name="3">28</button>
+        </div>
+        <!--- Answer Buttons END -->
+
+        <!--- Final game over text -->
+        <p id="result">Great Job! Final Score: 19/26</p>
+        <!--- Final game over text -->
+    </div>
+    <!--- Game screen END-->
     <script src="script.js"></script>
 </body>
 </html>
