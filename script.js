@@ -7,6 +7,8 @@
  */
 
  // Variables 
+var min = 0;
+var max = 0;
 var playButton = document.getElementById('play-button');
 var options = document.getElementsByName('level');
 var gameScreen = document.getElementById('game-screen');
@@ -19,21 +21,7 @@ var button1 = document.getElementById("button_1");
 var button2 = document.getElementById("button_2");
 var button3 = document.getElementById("button_3");
 var button4 = document.getElementById("button_4");
-
- // Easy Level
-function easy(min, max) {
-    gamePlay(min, max);
-}
-
-// Intermediate Level
-function intermediate(min, max) {
-    gamePlay(min, max);
-}
-
-// Hard Level
-function hard(min, max) {
-    gamePlay(min, max);
-}
+var scoreDisplay = document.getElementById("score-display");
 
 
 /// Gameplay function!!!
@@ -189,6 +177,20 @@ function gamePlay(min, max) {
     }
 }
 
+// Answer button pressed
+$(".answers").click(function() {
+    
+    if ($(this).attr("name") == correctAnswer) {
+        score++;
+    } 
+    
+    numberOfQuestions++;
+    scoreDisplay.innerHTML = score + " / " + numberOfQuestions;
+    
+    gamePlay(min, max);
+    
+});
+
 
 /***
  * Play button actions
@@ -196,19 +198,26 @@ function gamePlay(min, max) {
 
 playButton.onclick = function() {
     if (options[0].checked) {
-        easy(0, 9);
+        min = 0;
+        max = 9;
+        gameScreen.style.visibility = "visible";
 
     } else if (options[1].checked) {
-        intermediate(10, 50);
+        min = 10;
+        max = 50;
+        gameScreen.style.visibility = "visible";
 
     } else if (options[2].checked) {
-        hard(51, 100);
+        min = 51;
+        max = 100;
+        gameScreen.style.visibility = "visible";
 
     } else {
         alert('Error: Please select your level!');
 
     }
-    gameScreen.style.visibility = "visible";
+    
+    gamePlay(min, max);
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
