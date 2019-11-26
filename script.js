@@ -22,6 +22,8 @@ var button2 = document.getElementById("button_2");
 var button3 = document.getElementById("button_3");
 var button4 = document.getElementById("button_4");
 var scoreDisplay = document.getElementById("score-display");
+var result = document.getElementById("result");
+var timer = document.getElementById("timer-display");
 
 
 /// Gameplay function!!!
@@ -197,27 +199,61 @@ $(".answers").click(function() {
  */
 
 playButton.onclick = function() {
+
     if (options[0].checked) {
         min = 0;
         max = 9;
-        gameScreen.style.visibility = "visible";
 
     } else if (options[1].checked) {
         min = 10;
         max = 50;
-        gameScreen.style.visibility = "visible";
 
     } else if (options[2].checked) {
         min = 51;
         max = 100;
-        gameScreen.style.visibility = "visible";
+        
+    } 
 
-    } else {
-        alert('Error: Please select your level!');
-
-    }
+    result.style.visibility = "hidden";
+    button1.disabled = false;
+    button2.disabled = false;
+    button3.disabled = false;
+    button4.disabled = false;
+    playButton.disabled = true;
+    gameScreen.style.visibility = "visible";
     
     gamePlay(min, max);
+
+    var time = 30;
+    
+    var interval = setInterval(function () {
+        
+        timer.innerHTML = "0:" + time;
+        time--;
+        
+        if (time < 10) {
+            
+            timer.innerHTML = "0:0" + time;
+            
+        }
+        
+        if (time == 0) {
+            
+            timer.innerHTML = "0:00";
+            result.innerHTML = "Your final score: " + score + " / " + numberOfQuestions;
+            result.style.visibility = "visible"
+            score = 0;
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            button4.disabled = true;
+            numberOfQuestions = 0;
+            playButton.disabled = false;
+            clearInterval(interval);
+            
+        }
+        
+    }, 1010);
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
