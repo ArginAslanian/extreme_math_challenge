@@ -4,4 +4,4 @@ Math challenge game for a personal project at California State University, Los A
 
 Complete game can be found at:
 
-https://arginaslanian.com/extreme-math-challenge
+https://arginaslanian.com/web-development/extreme-math-challenge/index.html
